@@ -1,5 +1,3 @@
-## 🤖 Assistant
-
 # CH9329 Controller Library
 
 A C++ library for controlling CH9329 USB-to-Serial devices, providing comprehensive APIs for keyboard, mouse, and HID operations.
@@ -41,7 +39,7 @@ brew install boost cmake
 ### Build and Install Library
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/EnderTheCoder/CH9329Controller
 cd CH9329Lib
 mkdir build && cd build
 cmake ..
