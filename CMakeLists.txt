@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(CH9329ControllerLib
+project(CH9329Controller
         VERSION 1.0.0
         DESCRIPTION "C++ library for CH9329 USB-to-Serial device controller"
         LANGUAGES CXX)
@@ -20,31 +20,31 @@ option(BUILD_EXAMPLES "Build example programs" ON)
 find_package(Boost REQUIRED COMPONENTS system)
 
 # 创建库（共享和静态）
-add_library(CH9329ControllerLib
+add_library(CH9329Controller
         src/CH9329Controller.cpp
 )
 
 # 目标属性设置
-target_include_directories(CH9329ControllerLib
+target_include_directories(CH9329Controller
         PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
 )
 
-target_link_libraries(CH9329ControllerLib
+target_link_libraries(CH9329Controller
         PUBLIC
         Boost::system
 )
 
 # 设置库版本信息
-set_target_properties(CH9329ControllerLib PROPERTIES
+set_target_properties(CH9329Controller PROPERTIES
         VERSION ${PROJECT_VERSION}
         SOVERSION 1
 )
 
 # 安装规则
 include(GNUInstallDirs)
-install(TARGETS CH9329ControllerLib
+install(TARGETS CH9329Controller
         EXPORT CH9329ControllerTargets
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
@@ -85,5 +85,5 @@ install(FILES
 # 构建示例程序（可选）
 if(BUILD_EXAMPLES)
     add_executable(demo examples/demo.cpp)
-    target_link_libraries(demo PRIVATE CH9329ControllerLib)
+    target_link_libraries(demo PRIVATE CH9329Controller)
 endif()
