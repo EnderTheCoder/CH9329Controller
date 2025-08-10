@@ -303,12 +303,12 @@ namespace ender {
     std::pair<uint16_t, uint16_t> CH9329Controller::convert_screen_to_absolute(uint16_t screen_x, uint16_t screen_y,
                                                                                uint16_t screen_width,
                                                                                uint16_t screen_height) {
-        uint16_t abs_x = static_cast<uint16_t>((static_cast<uint32_t>(screen_x) * 4095) / screen_width);
-        uint16_t abs_y = static_cast<uint16_t>((static_cast<uint32_t>(screen_y) * 4095) / screen_height);
+        auto abs_x = static_cast<uint16_t>((static_cast<uint32_t>(screen_x) * 4095) / screen_width);
+        auto abs_y = static_cast<uint16_t>((static_cast<uint32_t>(screen_y) * 4095) / screen_height);
 
         abs_x = std::min(abs_x, static_cast<uint16_t>(4095));
         abs_y = std::min(abs_y, static_cast<uint16_t>(4095));
 
         return std::make_pair(abs_x, abs_y);
     }
-} // namespace enderhive::device
+} // namespace ender
