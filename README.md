@@ -57,7 +57,7 @@ sudo make install
 find_package(CH9329Controller REQUIRED)
 
 add_executable(my_app main.cpp)
-target_link_libraries(my_app PRIVATE CH9329::CH9329ControllerLib)
+target_link_libraries(my_app PRIVATE CH9329::CH9329Controller)
 ```
 
 #### Method 2: Add Subdirectory
@@ -66,7 +66,7 @@ target_link_libraries(my_app PRIVATE CH9329::CH9329ControllerLib)
 add_subdirectory(path/to/CH9329Lib)
 
 add_executable(my_app main.cpp)
-target_link_libraries(my_app PRIVATE CH9329ControllerLib)
+target_link_libraries(my_app PRIVATE CH9329Controller)
 ```
 
 ### Basic Example
